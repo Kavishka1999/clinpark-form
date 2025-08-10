@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>ClinPark Form</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      font-family: Arial, sans-serif;
+    }
+
+    .container {
+      display: flex;
+      height: 100vh;
+      width: 100vw;
+    }
+
+    .left-section {
+        background-image: url('left.jpg'); 
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        width: 40%;
+        height: 100%;
+      background-color: #e0f9f5;
+      width: 40%;
+      padding: 60px 30px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+
+    .left-section img {
+      width: 120px;
+      margin-bottom: 30px;
+    }
+
+    .left-section h2 {
+      font-size: 28px;
+      margin-bottom: 10px;
+    }
+
+    .left-section p {
+      font-size: 16px;
+      color: #333;
+    }
+
+    .right-section {
+        background-image: url('bacmk1.png'); 
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        width: 40%;
+        height: 100%;
+      background-color: #d8dbe8;
+      width: 60%;
+      padding: 40px;
+      overflow-y: auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    form {
+      width: 100%;
+      max-width: 600px;
+      background: rgba(255, 255, 255, 0.15);
+      padding: 30px;
+      border-radius: 10px;
+    }
+
+    label {
+      display: block;
+      margin-top: 20px;
+      font-weight: bold;
+    }
+
+    input[type="text"],
+    input[type="date"],
+    input[type="number"],
+    textarea {
+      width: 100%;
+      padding: 10px;
+      margin-top: 8px;
+      border-radius: 5px;
+      border: none;
+      font-size: 14px;
+    }
+
+    textarea {
+      resize: vertical;
+    }
+
+    .radio-group {
+      margin-top: 10px;
+    }
+
+    .radio-group input {
+      margin-right: 5px;
+      margin-left: 15px;
+    }
+
+    .button-group {
+      margin-top: 30px;
+      display: flex;
+      gap: 10px;
+    }
+
+    .button-group button {
+      padding: 12px 24px;
+      border: none;
+      border-radius: 5px;
+      font-weight: bold;
+      cursor: pointer;
+      font-size: 14px;
+    }
+
+    .cancel-btn {
+      background-color: #f0f0f0;
+      color: #000;
+    }
+
+    .save-btn {
+      background-color: #00c07b;
+      color: #fff;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        flex-direction: column;
+      }
+
+      .left-section,
+      .right-section {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <div class="left-section">
+      <img src="clinpark.png" alt="Clinpark Logo" />
+      <h1>Advanced Clinical Reseach Services</h1>
+      <p><b>Delivering Accurate Data For Better Healthcare Outcomes.</b></p>
+    </div>
+
+    <div class="right-section">
+      <form id="clinparkForm">
+        <label for="name">Name</label>
+        <input type="text" id="name" name="name" required>
+
+        <label>Gender</label>
+        <div class="radio-group">
+          <input type="radio" name="gender" value="Male" required> Male
+          <input type="radio" name="gender" value="Female"> Female
+        </div>
+
+        <label for="dob">Date of Birth</label>
+        <input type="date" id="dob" name="dob" required>
+
+        <label for="height">Height (m)</label>
+        <input type="number" step="0.01" id="height" name="height" required>
+
+        <label for="weight">Weight (kg)</label>
+        <input type="number" step="0.1" id="weight" name="weight" required>
+
+        <label>Do you smoke?</label>
+        <div class="radio-group">
+          <input type="radio" name="smoke" value="Yes" required> Yes
+          <input type="radio" name="smoke" value="No"> No
+        </div>
+        <div id="smokeReasonDiv" class="hidden">
+          <label for="smokeReason">Reason for smoking</label>
+          <textarea id="smokeReason" name="smokeReason" rows="3"></textarea>
+        </div>
+
+        <label>Do you consume alcohol?</label>
+        <div class="radio-group">
+          <input type="radio" name="alcohol" value="Yes" required> Yes
+          <input type="radio" name="alcohol" value="No"> No
+        </div>
+        <div id="alcoholReasonDiv" class="hidden">
+          <label for="alcoholReason">Reason for consuming alcohol</label>
+          <textarea id="alcoholReason" name="alcoholReason" rows="3"></textarea>
+        </div>
+        <label>Do you use any recreational drugs or substances?</label>
+        <div class="radio-group">
+          <input type="radio" name="drugs" value="Yes" required> Yes
+          <input type="radio" name="drugs" value="No"> No
+        </div>
+        <div id="drugsReasonDiv" class="hidden">
+          <label for="drugsReason">Reason for drugs or substances</label>
+          <textarea id="drugsReason" name="drugsReason" rows="3"></textarea>
+        </div>
+         <label>Have you ever had surgery?</label>
+        <div class="radio-group">
+          <input type="radio" name="surgery" value="Yes" required> Yes
+          <input type="radio" name="surgery" value="No"> No
+        </div>
+        <div id="surgeryReasonDiv" class="hidden">
+          <label for="surgeryReason">Reason for Surgery?</label>
+          <textarea id="surgeryReason" name="surgeryReason" rows="3"></textarea>
+        </div>
+
+        <div class="button-group">
+          <button type="reset" class="cancel-btn">Cancel</button>
+          <button type="submit" class="save-btn">Save</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    const smokeRadios = document.getElementsByName('smoke');
+    const alcoholRadios = document.getElementsByName('alcohol');
+    const drugsRadios = document.getElementsByName('drugs');
+    const SurgeryRadios = document.getElementsByName('surgery');
+    const smokeDiv = document.getElementById('smokeReasonDiv');
+    const drugsDiv = document.getElementById('drugsReasonDiv');
+    const surgeryDiv = document.getElementById('surgeryReasonDiv');
+    const alcoholDiv = document.getElementById('alcoholReasonDiv');
+    const form = document.getElementById('clinparkForm');
+
+    function toggleReasonField(radios, div) {
+      radios.forEach(radio => {
+        radio.addEventListener('change', () => {
+          if (radio.value === 'Yes' && radio.checked) {
+            div.classList.remove('hidden');
+          } else if (radio.value === 'No' && radio.checked) {
+            div.classList.add('hidden');
+          }
+        });
+      });
+    }
+
+    toggleReasonField(smokeRadios, smokeDiv);
+    toggleReasonField(drugsRadios, drugsDiv);
+    toggleReasonField(SurgeryRadios, surgeryDiv);
+    toggleReasonField(alcoholRadios, alcoholDiv);
+
+    form.addEventListener('submit', function(e) {
+      const smokeValue = document.querySelector('input[name="smoke"]:checked').value;
+      const drugsValue = document.querySelector('input[name="drugs"]:checked').value;
+      const surgeryValue = document.querySelector('input[name="surgery"]:checked').value;
+      const alcoholValue = document.querySelector('input[name="alcohol"]:checked').value;
+
+      if (smokeValue === 'Yes' && document.getElementById('smokeReason').value.trim() === '') {
+        alert('Please provide a reason for smoking.');
+        e.preventDefault();
+        return;
+      }
+      if (drugsValue === 'Yes' && document.getElementById('drugsReason').value.trim() === '') {
+        alert('Please provide a reason for drugs.');
+        e.preventDefault();
+        return;
+      }
+      if (surgeryValue === 'Yes' && document.getElementById('surgeryReason').value.trim() === '') {
+        alert('Please provide a reason for surgery.');
+        e.preventDefault();
+        return;
+      }
+      if (alcoholValue === 'Yes' && document.getElementById('alcoholReason').value.trim() === '') {
+        alert('Please provide a reason for alcohol consumption.');
+        e.preventDefault();
+        return;
+      }
+
+      alert('Form submitted successfully!');
+    });
+  </script>
+
+</body>
+</html>
